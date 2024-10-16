@@ -1,0 +1,169 @@
+{
+  "main": {
+    "id": "4f32908455cbdb4a",
+    "type": "split",
+    "children": [
+      {
+        "id": "d6f4a246d1079e32",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1468db5098446db0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d481728967deb856",
+    "type": "split",
+    "children": [
+      {
+        "id": "63365e25f020a8dc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c59c84ced1212cd7",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "3c53b34429401637",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "1441f36a36760fd0",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "7f9f851c07e33842",
+    "type": "split",
+    "children": [
+      {
+        "id": "34d57aec336ab649",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cfc8d9526783dd42",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "README.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "da8e6828e916afbd",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "README.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "6b6b443d2813612f",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "f21e71ac8ce70dce",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "README.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "1468db5098446db0",
+  "lastOpenFiles": [
+    "scripts/Scripts.md",
+    "README.md",
+    "notebooks/Notebooks.md",
+    "data/Data.md",
+    "docs/Docs.md",
+    "src/Sources.md",
+    "scripts/post-processes",
+    "scripts/enhancement",
+    "scripts/analysis",
+    "notebooks/workflows",
+    "notebooks/educative",
+    "notebooks/exploratory",
+    "data/processed",
+    "data/raw",
+    "docs/papers",
+    "p"
+  ]
+}
