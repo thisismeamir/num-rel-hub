@@ -147,23 +147,24 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1468db5098446db0",
+  "active": "c59c84ced1212cd7",
   "lastOpenFiles": [
+    "data/raw/GCH",
+    "data/processed/GCH",
+    "docs/reports/GCH",
+    "docs/papers/GCH",
+    "docs/notes/GCH",
+    "notebooks/workflows/GCH",
+    "notebooks/exploratory/GCH",
+    "notebooks/educative/GCH",
+    "scripts/analysis/GCH",
+    "scripts/enhancement/GCH",
+    "GCH",
     "scripts/Scripts.md",
     "README.md",
     "notebooks/Notebooks.md",
     "data/Data.md",
     "docs/Docs.md",
-    "src/Sources.md",
-    "scripts/post-processes",
-    "scripts/enhancement",
-    "scripts/analysis",
-    "notebooks/workflows",
-    "notebooks/educative",
-    "notebooks/exploratory",
-    "data/processed",
-    "data/raw",
-    "docs/papers",
-    "p"
+    "src/Sources.md"
   ]
 }
