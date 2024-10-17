@@ -10,17 +10,482 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[       820,         34]
-NotebookOptionsPosition[       561,         21]
-NotebookOutlinePosition[       960,         37]
-CellTagsIndexPosition[       917,         34]
+NotebookDataLength[     20715,        542]
+NotebookOptionsPosition[     18122,        486]
+NotebookOutlinePosition[     18519,        502]
+CellTagsIndexPosition[     18476,        499]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+Cell[TextData[{
+ StyleBox["Numerical Relativity Hub",
+  FontWeight->"Bold",
+  FontSlant->"Plain"],
+ StyleBox[" | Educative Notebooks | 17 . OCT . 2024",
+  FontSlant->"Plain"],
+ " | ",
+ StyleBox["Amir H. Ebrahimnezhad (",
+  FontSlant->"Plain"],
+ StyleBox[ButtonBox["github",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://github.com/thisismeamir"], None},
+  ButtonNote->"https://github.com/thisismeamir"],
+  FontSlant->"Plain"],
+ StyleBox[", ",
+  FontSlant->"Plain"],
+ StyleBox[ButtonBox["email",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["mailto:thisismeamir@outlook.com"], None},
+  ButtonNote->"mailto:thisismeamir@outlook.com"],
+  FontSlant->"Plain"],
+ StyleBox[")",
+  FontSlant->"Plain"]
+}], "Abstract",
+ CellChangeTimes->{{3.9381506939235573`*^9, 
+  3.938150786083048*^9}},ExpressionUUID->"b5103ede-e6f8-4993-995a-\
+9c08e2836803"],
+
+Cell[CellGroupData[{
+
+Cell["Galerkin Method", "Title",
+ CellChangeTimes->{{3.938150794403767*^9, 
+  3.938150796641947*^9}},ExpressionUUID->"85977157-5487-4f08-a5b3-\
+da440288c1c9"],
+
+Cell["> Numerical Methods", "Subtitle",
+ CellChangeTimes->{{3.9381507992181673`*^9, 
+  3.93815081501668*^9}},ExpressionUUID->"dbe8818d-de53-4410-8911-\
+babf0de367dd"],
+
+Cell[CellGroupData[{
+
+Cell["Introduction", "Chapter",
+ CellChangeTimes->{{3.9381508208782673`*^9, 
+  3.938150822222001*^9}},ExpressionUUID->"842a36a7-d146-454c-bbfd-\
+b8ac74590178"],
+
+Cell[TextData[{
+ "The ",
+ StyleBox["Galerkin method",
+  FontWeight->"Bold"],
+ " is a numerical approach to solve differential equations by approximating \
+the solution using a linear combination of basis functions . The method \
+ensures that the residual (error) is orthogonal to the space spanned by the \
+chosen basis functions . In this notebook we would try to solve a \
+differential equation using this method, for a more detailed note on how the \
+method actually works check the docs folder for ",
+ StyleBox["Galerkin Method.md", "InlineFormula"],
+ ":  "
+}], "Text",
+ CellChangeTimes->{{3.938150925460211*^9, 3.938150927382318*^9}, {
+  3.9381509771925507`*^9, 3.9381510036463833`*^9}, {3.938151141669784*^9, 
+  3.93815119496929*^9}},ExpressionUUID->"0b7bf343-3b23-4e7e-a432-\
+fc5725ef0b68"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"differentialEquation", "=", 
+   RowBox[{
+    RowBox[{"D", "[", 
+     RowBox[{
+      RowBox[{"u", "[", "x", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "2"}], "}"}]}], "]"}], "==", 
+    RowBox[{"-", "1"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"boundaryConditions", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"u", "[", "0", "]"}], " ", "==", "0"}], ",", " ", 
+     RowBox[{
+      RowBox[{"u", "[", "1", "]"}], "==", " ", "0"}]}], "}"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.93815105942984*^9, 3.938151108074151*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"8f40b81f-742c-4eab-af6e-145ba897bd03"],
+
+Cell[CellGroupData[{
+
+Cell["Using the Method", "Section",
+ CellChangeTimes->{{3.938151129784601*^9, 
+  3.9381511365023603`*^9}},ExpressionUUID->"78eb54ca-f582-432a-ab36-\
+3e3016da9762"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["Choose Basis Functions",
+  FontWeight->"Bold"],
+ ":",
+ StyleBox[" ",
+  FontWeight->"Bold"],
+ "For the Galerkin method, we choose basis functions that satisfy the \
+boundary conditions. Common choices are polynomials that vanish at the \
+boundaries. Let\[CloseCurlyQuote]s select the following two basis functions:"
+}], "Item",
+ CellChangeTimes->{{3.9381512312263203`*^9, 
+  3.9381512872735977`*^9}},ExpressionUUID->"797510e9-4105-4a72-a1ab-\
+e00df9fee563"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"phi1", "[", "x_", "]"}], ":=", 
+  RowBox[{"x", " ", 
+   RowBox[{"(", 
+    RowBox[{"1", "-", "x"}], ")"}]}]}], "\n", 
+ RowBox[{
+  RowBox[{"phi2", "[", "x_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"x", "^", "2"}], " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"1", "-", "x"}], ")"}], "^", "2"}]}]}], "\n"}], "Input",
+ CellChangeTimes->{{3.9381512415234947`*^9, 3.938151245349147*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"5e64319b-dada-47fa-9f89-04e43d005d2e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["Approximate the Solution",
+  FontWeight->"Bold"],
+ ": The approximate solution \|01d462(\|01d465) is represented as a linear \
+combination of the chosen basis functions:"
+}], "Item",
+ CellChangeTimes->{{3.9381512312263203`*^9, 3.9381512518997593`*^9}, {
+  3.938151305050481*^9, 
+  3.938151331045595*^9}},ExpressionUUID->"61feb88b-aefd-4bb2-b2fd-\
+a2eadf999b2a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"uApprox", "[", "x_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{"c1", " ", 
+     RowBox[{"phi1", "[", "x", "]"}]}], "+", 
+    RowBox[{"c2", " ", 
+     RowBox[{"phi2", "[", "x", "]"}]}]}]}], "\n"}]], "Input",
+ CellChangeTimes->{{3.938151340385873*^9, 3.938151344084484*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"4ab6909a-9ecc-4ced-8ca7-12021708ac68"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["Define the Residual",
+  FontWeight->"Bold"],
+ ": The residual is the error that remains when the approximate solution is \
+substituted into the original differential equation. The goal of the Galerkin \
+method is to minimize this residual."
+}], "Item",
+ CellChangeTimes->{{3.9381512312263203`*^9, 3.9381512518997593`*^9}, {
+  3.938151356350659*^9, 
+  3.9381514190474577`*^9}},ExpressionUUID->"0c3495e8-ec85-4495-953c-\
+d25a91fd5828"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"residual", "=", 
+    RowBox[{
+     RowBox[{"D", "[", 
+      RowBox[{
+       RowBox[{"uApprox", "[", "x", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "2"}], "}"}]}], "]"}], "+", "1"}]}], ";"}], 
+  "\n"}]], "Input",
+ CellChangeTimes->{{3.938151433218842*^9, 3.9381514361019087`*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"f3b7ef67-f53f-48ac-af83-3bd1fa4d670e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Project the Residual onto the Basis Functions: The key idea in the Galerkin \
+method is to make the residual orthogonal to each basis function. This leads \
+to a system of equations, which we solve for the coefficients ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["c", "1"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "db5addd3-48d0-4728-9a03-8d4ed9bf1554"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["c", "2"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "ffff800f-9140-4473-9dd6-22b9fc79e242"],
+ " We enforce orthogonality by integrating the residual multiplied by each \
+basis function and setting it to zero:"
+}], "Item",
+ CellChangeTimes->{{3.9381512312263203`*^9, 3.9381512518997593`*^9}, {
+  3.938151447190382*^9, 
+  3.938151482307193*^9}},ExpressionUUID->"f5681836-7f5e-4749-afc4-\
+ee98f81fcda7"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"eqn1", "=", 
+   RowBox[{
+    RowBox[{"Integrate", "[", 
+     RowBox[{
+      RowBox[{"residual", "*", 
+       RowBox[{"phi1", "[", "x", "]"}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "0", ",", "4"}], "}"}]}], "]"}], "==", "0"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"eqn2", "=", 
+   RowBox[{
+    RowBox[{"Integrate", "[", 
+     RowBox[{
+      RowBox[{"residual", "*", 
+       RowBox[{"phi2", "[", "x", "]"}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "0", ",", "4"}], "}"}]}], "]"}], "==", "0"}]}], 
+  ";"}], "\n"}], "Input",
+ CellChangeTimes->{{3.938151489453109*^9, 3.93815149249047*^9}, {
+  3.938151587476077*^9, 3.9381515887401743`*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"fd26f2fb-412d-44a3-bfaf-dfd5f3eecd77"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["Solve for the Coefficients",
+  FontWeight->"Bold"],
+ ": Mathematica\[CloseCurlyQuote]s Solve function will give us the values of \
+the unknown coefficients"
+}], "Item",
+ CellChangeTimes->{{3.9381512312263203`*^9, 3.9381512518997593`*^9}, {
+  3.93815152707198*^9, 
+  3.938151537918625*^9}},ExpressionUUID->"e9d05cbb-13b6-4a2d-8f56-\
+6e273b8281ab"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sol", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Solve", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"eqn1", ",", "eqn2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"c1", ",", "c2"}], "}"}]}], "]"}], " ", "//", " ", 
+     "Transpose"}], " ", "//", "MatrixForm"}]}], "\n"}]], "Input",
+ CellChangeTimes->{{3.938151512085019*^9, 3.938151514937338*^9}, {
+  3.938151622402672*^9, 3.938151633642659*^9}},
+ CellLabel->"In[22]:=",ExpressionUUID->"c6a02adb-2915-4eb3-87b5-4a2a6d0f53f8"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"c1", "\[Rule]", 
+       FractionBox["1", "2"]}]},
+     {
+      RowBox[{"c2", "\[Rule]", "0"}]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{
+  3.938151540677622*^9, 3.938151591289687*^9, {3.938151626138776*^9, 
+   3.938151634031784*^9}},
+ CellLabel->
+  "Out[22]//MatrixForm=",ExpressionUUID->"316ce409-a4d7-4a0b-afb3-\
+2a1501bd116a"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Substitution and Plot:", "Section",
+ CellChangeTimes->{{3.93815155692866*^9, 
+  3.938151563133585*^9}},ExpressionUUID->"5f4b2066-5327-4d2c-8007-\
+66e48a631460"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"uSol", "[", "x_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{"uApprox", "[", "x", "]"}], "/.", " ", "sol"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"uSol", "[", "x", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"PlotLabel", "->", "\"\<Galerkin Approximation\>\""}], ",", 
+   RowBox[{"PlotRange", "->", "All"}]}], "]"}], "\n"}], "Input",
+ CellChangeTimes->{{3.938151564082099*^9, 3.9381516092355433`*^9}},
+ CellLabel->"In[19]:=",ExpressionUUID->"b2ff334c-5d50-427c-9492-da565bce92bf"],
+
+Cell[BoxData[
+ GraphicsBox[{{{}, {}, 
+    TagBox[
+     {RGBColor[0.368417, 0.506779, 0.709798], AbsoluteThickness[1.6], Opacity[
+      1.], LineBox[CompressedData["
+1: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
+       "]]},
+     Annotation[#, "Charting`Private`Tag$10355#1"]& ]}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{
+   "DefaultBoundaryStyle" -> Automatic, 
+    "DefaultGraphicsInteraction" -> {
+     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+      "Effects" -> {
+       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+        "Droplines" -> {
+         "freeformCursorMode" -> True, 
+          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultMeshStyle" -> 
+    AbsolutePointSize[6], "ScalingFunctions" -> None, 
+    "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox["\"Galerkin Approximation\"", TraditionalForm],
+  PlotRange->{All, All},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.93815158269921*^9, 3.938151613385529*^9}},
+ CellLabel->"Out[20]=",ExpressionUUID->"ef738791-ef48-4459-8d77-127f9c89e7e4"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
 },
-WindowSize->{606., 665.25},
-WindowMargins->{{417, Automatic}, {45, Automatic}},
+WindowSize->{1440., 755.25},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
 FrontEndVersion->"13.2 for Linux x86 (64-bit) (November 18, 2022)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"b042c06c-eaaa-4dbe-b977-6578f647ebc5"
@@ -36,9 +501,50 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
+Cell[558, 20, 854, 28, 62, "Abstract",ExpressionUUID->"b5103ede-e6f8-4993-995a-9c08e2836803"],
+Cell[CellGroupData[{
+Cell[1437, 52, 158, 3, 98, "Title",ExpressionUUID->"85977157-5487-4f08-a5b3-da440288c1c9"],
+Cell[1598, 57, 166, 3, 53, "Subtitle",ExpressionUUID->"dbe8818d-de53-4410-8911-babf0de367dd"],
+Cell[CellGroupData[{
+Cell[1789, 64, 159, 3, 69, "Chapter",ExpressionUUID->"842a36a7-d146-454c-bbfd-b8ac74590178"],
+Cell[1951, 69, 797, 16, 82, "Text",ExpressionUUID->"0b7bf343-3b23-4e7e-a432-fc5725ef0b68"],
+Cell[2751, 87, 699, 20, 53, "Input",ExpressionUUID->"8f40b81f-742c-4eab-af6e-145ba897bd03"],
+Cell[CellGroupData[{
+Cell[3475, 111, 163, 3, 68, "Section",ExpressionUUID->"78eb54ca-f582-432a-ab36-3e3016da9762"],
+Cell[CellGroupData[{
+Cell[3663, 118, 483, 12, 53, "Item",ExpressionUUID->"797510e9-4105-4a72-a1ab-e00df9fee563"],
+Cell[4149, 132, 496, 14, 73, "Input",ExpressionUUID->"5e64319b-dada-47fa-9f89-04e43d005d2e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4682, 151, 388, 9, 32, "Item",ExpressionUUID->"61feb88b-aefd-4bb2-b2fd-a2eadf999b2a"],
+Cell[5073, 162, 393, 10, 52, "Input",ExpressionUUID->"4ab6909a-9ecc-4ced-8ca7-12021708ac68"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5503, 177, 460, 10, 32, "Item",ExpressionUUID->"0c3495e8-ec85-4495-953c-d25a91fd5828"],
+Cell[5966, 189, 422, 12, 51, "Input",ExpressionUUID->"f3b7ef67-f53f-48ac-af83-3bd1fa4d670e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6425, 206, 881, 21, 53, "Item",ExpressionUUID->"f5681836-7f5e-4749-afc4-ee98f81fcda7"],
+Cell[7309, 229, 781, 23, 71, "Input",ExpressionUUID->"fd26f2fb-412d-44a3-bfaf-dfd5f3eecd77"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8127, 257, 373, 9, 32, "Item",ExpressionUUID->"e9d05cbb-13b6-4a2d-8f56-6e273b8281ab"],
+Cell[CellGroupData[{
+Cell[8525, 270, 537, 14, 52, "Input",ExpressionUUID->"c6a02adb-2915-4eb3-87b5-4a2a6d0f53f8"],
+Cell[9065, 286, 779, 24, 119, "Output",ExpressionUUID->"316ce409-a4d7-4a0b-afb3-2a1501bd116a"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9905, 317, 166, 3, 68, "Section",ExpressionUUID->"5f4b2066-5327-4d2c-8007-66e48a631460"],
+Cell[CellGroupData[{
+Cell[10096, 324, 616, 15, 75, "Input",ExpressionUUID->"b2ff334c-5d50-427c-9492-da565bce92bf"],
+Cell[10715, 341, 7355, 139, 249, "Output",ExpressionUUID->"ef738791-ef48-4459-8d77-127f9c89e7e4"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
 }
 ]
 *)
-
-(* End of internal cache information *)
 

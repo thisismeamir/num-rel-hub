@@ -35,5 +35,5 @@ The method works by approximating the solution of a differential equation by exp
 - **Accuracy**: By increasing the number of basis functions, you can improve the approximation's accuracy.
 
 ---
-To learn more you can check out the educative notebook
-**Notebook:** [[Galerkin Method.nb]]
+###### References
+[[Galerkin Method.nb]]

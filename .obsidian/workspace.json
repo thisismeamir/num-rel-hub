@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notebooks/Notebooks.md",
+                "file": "docs/notes/numerical methods/Galerkin Method.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notebooks/Notebooks.md",
+                "file": "docs/notes/numerical methods/Galerkin Method.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "notebooks/Notebooks.md",
+                "file": "docs/notes/numerical methods/Galerkin Method.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notebooks/Notebooks.md"
+                "file": "docs/notes/numerical methods/Galerkin Method.md"
               }
             }
           }
@@ -181,12 +181,16 @@
   },
   "active": "d4d5daa4a9582a01",
   "lastOpenFiles": [
+    "docs/notes/numerical methods/Finite Volume Method.md",
+    "docs/notes/numerical methods/Discontinuous Galerkin Method.md",
+    "docs/notes/theoretical notes/3+1 Decomposition-Introduction.md",
+    "docs/notes/numerical methods/Finite Difference Method.md",
     "docs/notes/numerical methods/Galerkin Method.md",
+    "notebooks/Notebooks.md",
     "docs/notes/notes.md",
     "docs/papers/papers.md",
     "docs/reports/reports.md",
     "docs/notes/theoretical notes/Gauss-Codazzi Equations.md",
-    "docs/notes/theoretical notes/3+1 Decomposition-Introduction.md",
     "Pasted image 20241017122408.png",
     "notebooks/educative/Galerkin Method.nb",
     "data/Data.md",
@@ -194,10 +198,7 @@
     "docs/docs.md",
     "docs/notes/theoretical notes/General Relativity Basics.md",
     "docs/notes/theoretical notes/Special Relativity.md",
-    "docs/notes/numerical methods/Discontinuous Galerkin Method.md",
     "docs/notes/theoretical notes",
-    "docs/notes/numerical methods/Finite Volume Method.md",
-    "docs/notes/numerical methods/Finite Difference Method.md",
     "docs/notes/numerical methods",
     "Pasted image 20241017122643.png",
     "docs/notes/All Notes.md",
@@ -210,7 +211,6 @@
     "notebooks/workflows/GCH",
     "notebooks/exploratory/GCH",
     "scripts/Scripts.md",
-    "notebooks/Notebooks.md",
     "src/Sources.md"
   ]
 }
