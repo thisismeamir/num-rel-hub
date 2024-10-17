@@ -26,7 +26,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/notes/numerical methods/Galerkin Method.md",
+                "file": "docs/notes/theoretical notes/3+1 Decomposition-Introduction.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "dc40a3fe7e438e7a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/notes/theoretical notes/3+1 Decomposition-Introduction.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -34,7 +47,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -101,7 +114,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "docs/notes/numerical methods/Galerkin Method.md",
+                "file": "docs/notes/theoretical notes/3+1 Decomposition-Introduction.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +131,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "docs/notes/numerical methods/Galerkin Method.md",
+                "file": "docs/notes/theoretical notes/3+1 Decomposition-Introduction.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,7 +154,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "docs/notes/numerical methods/Galerkin Method.md"
+                "file": "docs/notes/theoretical notes/3+1 Decomposition-Introduction.md"
               }
             }
           }
@@ -179,25 +192,26 @@
       "dbfolder:Create a new database table": false
     }
   },
-  "active": "d4d5daa4a9582a01",
+  "active": "dc40a3fe7e438e7a",
   "lastOpenFiles": [
+    "docs/notes/theoretical notes/Special Relativity.md",
+    "docs/notes/theoretical notes/3+1 Decomposition-Introduction.md",
+    "docs/notes/theoretical notes/Gauss-Codazzi Equations.md",
+    "docs/notes/theoretical notes/General Relativity Basics.md",
+    "ADM Formulation.md",
+    "docs/notes/numerical methods/Galerkin Method.md",
     "docs/notes/numerical methods/Finite Volume Method.md",
     "docs/notes/numerical methods/Discontinuous Galerkin Method.md",
-    "docs/notes/theoretical notes/3+1 Decomposition-Introduction.md",
     "docs/notes/numerical methods/Finite Difference Method.md",
-    "docs/notes/numerical methods/Galerkin Method.md",
     "notebooks/Notebooks.md",
     "docs/notes/notes.md",
     "docs/papers/papers.md",
     "docs/reports/reports.md",
-    "docs/notes/theoretical notes/Gauss-Codazzi Equations.md",
     "Pasted image 20241017122408.png",
     "notebooks/educative/Galerkin Method.nb",
     "data/Data.md",
     "docs/Docs.md",
     "docs/docs.md",
-    "docs/notes/theoretical notes/General Relativity Basics.md",
-    "docs/notes/theoretical notes/Special Relativity.md",
     "docs/notes/theoretical notes",
     "docs/notes/numerical methods",
     "Pasted image 20241017122643.png",

@@ -80,9 +80,33 @@ $$
 \!^{(4)}R^{0i}_{0j} &= -\frac 1\alpha\partial_t K^i_{\cdot j} +K^i_{\cdot k} K^k_{\cdot j} - \frac1\alpha \nabla^i\nabla_j \alpha + \frac1\alpha \nabla_j (\beta^k K^i_{\cdot k}) - \frac1\alpha (\nabla_k\beta^i)K^k_{\cdot j}
 \end{align}
 $$
+From these one obtains the four-dimensional Einstein tensor components:
+$$
+\begin{align}
+G^{00} = &-\frac{\mathcal{H}}{2\alpha^2 \sqrt\gamma}\\
+G^{0i} = &\frac{\alpha \mathcal{H}^i + \beta^i\mathcal{H}}{2\alpha^2\sqrt \gamma}\\
+G^{ij} = &-\frac{\beta^i\beta^j \mathcal{H}}{2\alpha^2 \sqrt \gamma} + \frac{1}{\alpha \sqrt\gamma}\partial_t(\sqrt \gamma P^{ij}) + \!^{(3)}R^{ij} - \frac12 \!^{(3)} R\gamma^{ij}\\
+&-\frac1\alpha(\nabla^i\nabla^j - \gamma^{ij}\nabla^2)\alpha + \frac1\alpha \nabla_k ( \beta^i P^{jk} + \beta^j P^{ik} - \beta^k P^{ij})\\
+&+2P^{i}_{\cdot k}P^{jk} - PP^{ij} - \frac12\left(P_{kl}P^{kl} - \frac12 P^2\right)\gamma^{ij}\end{align}
+$$
+where:
+$$
+\begin{align}
+\mathcal{H} &= \sqrt\gamma\left[ 
+K_{ij}K^{ij} - K^2 - \!^{(3)}R
+\right]\\
+\mathcal{H}^i &= 2\sqrt\gamma\nabla_j \left(K^{ij}- K\gamma^{ij}\right) \\
+K &= \gamma_{ij}K^{ij}\\
+P^{ij} &= K\gamma^{ij} - K^{ij}
+\end{align}
+$$
+Components of the four-dimensional Riemann and Einsteins tensors are raised and lowered using the four-dimensional metric; however, components of all other quantities, including $K_{ij}$ and the three-dimensional Riemann tensor, are raised and lowered using the $\gamma_{ij}$ metric. The four-dimensional Ricci scalar obeys:
+$$
+\sqrt{-g} \ \!^{(4)}R = \alpha\sqrt\gamma\left[K_{ij}K^{ij} - K^2 + \!^{(3)}R\right] - 2\partial_t (\sqrt\gamma K) + 2\partial_i\left[\sqrt \gamma (K\beta^i - \nabla^i\alpha)\right]
+$$
 
 
-
+###### Jump to Next [[ADM Formulation]]
 
 ---
 #introductory #theory 
