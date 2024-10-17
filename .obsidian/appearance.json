@@ -1,3 +1,11 @@
 {
-  "cssTheme": "Sanctum"
+  "cssTheme": "Minimal",
+  "baseFontSize": 21,
+  "theme": "moonstone",
+  "accentColor": "",
+  "interfaceFontFamily": "IBM Plex Sans",
+  "textFontFamily": "IBM Plex Sans",
+  "monospaceFontFamily": "IBM Plex Mono",
+  "baseFontSizeAction": true,
+  "nativeMenus": false
 }

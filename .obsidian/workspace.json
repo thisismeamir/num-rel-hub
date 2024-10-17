@@ -4,7 +4,7 @@
     "type": "split",
     "children": [
       {
-        "id": "d6f4a246d1079e32",
+        "id": "836c7439e9ec383f",
         "type": "tabs",
         "children": [
           {
@@ -13,14 +13,28 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "docs/notes/theoretical notes/3+1 Decomposition-Introduction.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "d4d5daa4a9582a01",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "notebooks/Notebooks.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -77,8 +91,9 @@
     "type": "split",
     "children": [
       {
-        "id": "34d57aec336ab649",
+        "id": "f97fb096df599c77",
         "type": "tabs",
+        "dimension": 25.95785440613027,
         "children": [
           {
             "id": "cfc8d9526783dd42",
@@ -86,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "notebooks/Notebooks.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "notebooks/Notebooks.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,8 +141,24 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "notebooks/Notebooks.md"
               }
+            }
+          }
+        ],
+        "currentTab": 3
+      },
+      {
+        "id": "f2018628ef7a3ad8",
+        "type": "tabs",
+        "dimension": 74.04214559386973,
+        "children": [
+          {
+            "id": "506d534d269cea50",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
             }
           }
         ]
@@ -144,11 +175,33 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "dbfolder:Create a new database table": false
     }
   },
-  "active": "c59c84ced1212cd7",
+  "active": "d4d5daa4a9582a01",
   "lastOpenFiles": [
+    "docs/notes/numerical methods/Galerkin Method.md",
+    "docs/notes/notes.md",
+    "docs/papers/papers.md",
+    "docs/reports/reports.md",
+    "docs/notes/theoretical notes/Gauss-Codazzi Equations.md",
+    "docs/notes/theoretical notes/3+1 Decomposition-Introduction.md",
+    "Pasted image 20241017122408.png",
+    "notebooks/educative/Galerkin Method.nb",
+    "data/Data.md",
+    "docs/Docs.md",
+    "docs/docs.md",
+    "docs/notes/theoretical notes/General Relativity Basics.md",
+    "docs/notes/theoretical notes/Special Relativity.md",
+    "docs/notes/numerical methods/Discontinuous Galerkin Method.md",
+    "docs/notes/theoretical notes",
+    "docs/notes/numerical methods/Finite Volume Method.md",
+    "docs/notes/numerical methods/Finite Difference Method.md",
+    "docs/notes/numerical methods",
+    "Pasted image 20241017122643.png",
+    "docs/notes/All Notes.md",
+    "README.md",
     "data/raw/GCH",
     "data/processed/GCH",
     "docs/reports/GCH",
@@ -156,15 +209,8 @@
     "docs/notes/GCH",
     "notebooks/workflows/GCH",
     "notebooks/exploratory/GCH",
-    "notebooks/educative/GCH",
-    "scripts/analysis/GCH",
-    "scripts/enhancement/GCH",
-    "GCH",
     "scripts/Scripts.md",
-    "README.md",
     "notebooks/Notebooks.md",
-    "data/Data.md",
-    "docs/Docs.md",
     "src/Sources.md"
   ]
 }
