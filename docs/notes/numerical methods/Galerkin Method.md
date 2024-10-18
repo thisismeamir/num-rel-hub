@@ -34,6 +34,8 @@ The method works by approximating the solution of a differential equation by exp
 - **Flexibility**: The choice of basis functions can be adapted to the problem, making the method versatile.
 - **Accuracy**: By increasing the number of basis functions, you can improve the approximation's accuracy.
 
+###### Jump to Next [[Discontinuous Galerkin Method]]
 ---
+#method #numerical #introductory 
 ###### References
 [[Galerkin Method.nb]]

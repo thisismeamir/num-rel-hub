@@ -3,7 +3,6 @@
 
 In this small note we'll investigate and learn it with detailed mathematics. This can be an easy starting point for and undergraduate that has a basic understanding of [[General Relativity Basics]].
 
-# Hamiltonian Formulation
 The normal approaches to general relativity, as a field theory is based on Lagrangian formulation, for some reasons this approach is not necessarily good for numerical relativity. Therefore, a Hamiltonian formulation is preferred. 
 
 The Hamiltonian formulation of general relativity requires a separation of time and space coordinates, known as a $3+1$ decomposition. 
