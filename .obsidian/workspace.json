@@ -43,13 +43,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "docs/notes/theoretical notes/General Relativistic Magnetohydrodynamics.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "General Relativistic Magnetohydrodynamics"
             }
           },
           {
@@ -154,7 +154,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "7f9f851c07e33842",
@@ -275,13 +276,13 @@
   },
   "active": "550062d6ddd78c95",
   "lastOpenFiles": [
+    "docs/References.md",
+    "README.md",
     "notebooks/Notebooks.md",
     "notebooks/notebooks.md",
-    "README.md",
     "docs/notes/theoretical notes/General Relativistic Magnetohydrodynamics.md",
     "docs/notes/theoretical notes/Faraday tensor.md",
     "docs/notes/theoretical notes/continuity equation.md",
-    "docs/References.md",
     "docs/notes/theoretical notes/Bianchi identities.md",
     "docs/notes/theoretical notes/energy momentum tensor conservation.md",
     "docs/Docs.md",

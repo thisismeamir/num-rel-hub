@@ -59,8 +59,52 @@ and
 $$
 \nabla_\mu \!^*F^{\mu\nu}= 0
 $$
-Where $\mathcal{J}^\mu$ is the charge current density, and $\!^*F^{\mu\nu}$ is the dual of the Faraday tensor.
+Where $\mathcal{J}^\mu$ is the charge current density, and $\!^*F^{\mu\nu}$ is the dual of the Faraday tensor. The Faraday tensor $F^{\mu\nu}$ is constructed from the electric and magnetic fields, as measured in the generic frame having $U^\alpha$ as tangent vector:
+$$
+F^{\mu\nu} = U^\mu E^\nu - U^\nu E^\mu - \sqrt{-g} \eta^{\mu\nu\lambda\delta} U_\lambda B_\delta
+$$
+where $\eta^{\mu\nu\lambda\delta}$ is the fully anti-symmetric symbol and $g$ is the determinant of the spacetime four-metric. The dual Faraday tensor is then:
+$$
+\!^*F^{\mu\nu} := \sqrt{-g}\eta^{\mu\nu\lambda\delta}F_{\lambda\delta}
+$$
+which is written as:
+$$
+\!^* F^{\mu\nu} = U^\mu B^\nu - U^\nu B^\mu + \sqrt{-g}\eta^{\mu\nu\lambda\delta}U_\lambda E_\delta
+$$
+Most of GRMHD simulations to date have explored scenarios within the so-called "ideal GRMHD" where the electrical conductivity is assumed to be infinite.
 
+This can be a very good approximation because in astrophysical plasmas, the conductivity is actually very large. Under these conditions, the electric charges are infinitely effective in canceling any electric flied, which are therefore, zero in the frame co-moving with the fluid:
+$$
+F^{\mu\nu}u_\nu = 0
+$$
+The main consequence of the condition is that the electric fields cease to be independent vector fields and can be obtained from simple algebraic expressions involving the fluid four-velocity and the magnetic fields. 
+
+Specially after defining the electric and magnetic four-vectors in the fluid frame as:
+$$\begin{align}
+e^\mu &:= F^{\mu\nu}u_\nu\\
+b^\mu &:= F^{\mu\nu}u_\nu 
+\end{align}
+$$
+with the constraints that
+$$
+e^\mu = 0
+$$
+and that the co-moving magnetic field is fully spatial:
+$$
+u_\mu b^\mu = 0
+$$
+Under these conditions we can write the Faraday and its dual tensors as:
+$$
+\begin{align}
+F^{\mu\nu} &= \sqrt{-g}\eta^{\mu\nu\lambda\delta} u_\lambda b_\delta\\
+\!^*F^{\mu\nu} &= b^\mu u^\nu - b^\nu u^\mu
+\end{align}
+$$
+We can write the total energy-momentum tensor in terms of the vectors $u^\mu$ and $b^\mu$ as:
+$$
+T^{\mu\nu} = \rho h_{\text{tot}} u^\mu u^\nu + p_{\text{tot}} g^{\mu\nu} - b^\mu b^\nu
+$$
+where $p_{\text{tot}} := p + \frac{b^2}{2}$.
 ###### A List Of Books for GRMHD Numerical Methods:
 1. Dinshaw S. Balsara. Higher-order accurate space-time schemes for computational astrophysics—Part I: finite volume methods. Living Reviews in Computational Astrophysics, 3(1):2, December 2017.
 
