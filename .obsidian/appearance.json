@@ -1,10 +1,10 @@
 {
   "cssTheme": "Minimal",
-  "baseFontSize": 20,
+  "baseFontSize": 21,
   "theme": "system",
   "accentColor": "",
   "interfaceFontFamily": "IBM Plex Sans",
-  "textFontFamily": "IBM Plex Sans",
+  "textFontFamily": "IBM Plex Serif,IBM Plex Sans",
   "monospaceFontFamily": "IBM Plex Mono",
   "baseFontSizeAction": true,
   "nativeMenus": false

@@ -6,29 +6,29 @@ The structure of this repository is designed to separate educational content fro
 
 ## Repository Structure:
 
-### 1. `docs/`
+### [[Docs]]
 This directory contains all written materials, ranging from small notes to full papers.
 - [Notes](./notes): Short letters or informal notes that serve as quick references or observations.
 - [Reports](./reports): Progress reports or detailed documentation of the research process.
 - [Papers](./papers): Formal papers covering larger materials or detailed analysis of specific problems.
 
 
-### 2. `src/`
+###  [[Sources]]
 The source code for each standalone project or library I’m developing.
 - **project1/**: An example of a project folder. Each project folder is independent and has a specific goal, whether it's developing a library or solving a particular problem in numerical relativity.
 - **project2/**: Another example of a standalone project.
 
-### 3. `scripts/`
+### [[Scripts]]
 Utility scripts that help enhance the main projects. These include pre- and post-processing scripts, monkey patches, or any other tools that improve the behavior and usability of the projects.
 - [Analysis Scripts](./analysis)
 - [Enhancement Scripts](./enhancement)
 
-### 4. `data/`
+### [[Data]]
 All raw data associated with different projects and experiments.
 - [Raw](./raw): Sets of raw data.
 - [Processes](./processed): Analyzed and processed data.
 
-### 5. `notebooks/`
+### [[Notebooks]]
 This folder contains notebooks for idea exploration and calculation experiments, particularly in **Mathematica** or **Jupyter** formats.
 - [Exploratory Notebooks](./exploratory) Notebooks for exploring different ideas, simulations, and approaches
 - [Educative Notebooks](./educative) These notebooks provide better understanding of topics.
