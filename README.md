@@ -11,6 +11,7 @@ This directory contains all written materials, ranging from small notes to full 
 - [Notes](./notes): Short letters or informal notes that serve as quick references or observations.
 - [Reports](./reports): Progress reports or detailed documentation of the research process.
 - [Papers](./papers): Formal papers covering larger materials or detailed analysis of specific problems.
+- [[References]]: All the references of this project together.
 
 
 ###  [[Sources]]

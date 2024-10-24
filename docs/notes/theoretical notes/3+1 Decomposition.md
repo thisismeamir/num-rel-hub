@@ -1,13 +1,129 @@
 # Overview
 3+1 decomposition is an alternative view on the equations of general relativity. This view is the basics of numerical relativity and hence it's the most important basis of understanding the algorithms, methods, and simulations that we do.
 
-In this small note we'll investigate and learn it with detailed mathematics. This can be an easy starting point for and undergraduate that has a basic understanding of [[General Relativity Basics]].
+In this small note we'll investigate and learn it with detailed mathematics. This can be an easy starting point for and undergraduate that has a basic understanding of [[General Relativity]].
 
 The normal approaches to general relativity, as a field theory is based on Lagrangian formulation, for some reasons this approach is not necessarily good for numerical relativity. Therefore, a Hamiltonian formulation is preferred. 
 
 The Hamiltonian formulation of general relativity requires a separation of time and space coordinates, known as a $3+1$ decomposition. 
 
-## Formulation
+## Introduction
+The intrinsically "covariant view" of Einstein's theory of general relativity is based on the concept that all coordinates are equivalent and, hence, the distinction between spatial and time coordinates is more an organizational matter than a strict requirement of the theory. Yet, our experience, and the laws of physics on sufficiently large scales, do suggest that a distinction between the time coordinate and from the spatial ones is the most natural one in describing physical processes.
+
+Furthermore, such a distinction of time and space is the simplest way to exploit a large literature on the numerical solution of hyperbolic partial differential equations as those of relativistic MHD. adopting this principle, we **foliate** spacetime in terms of a set of non-intersecting spacelike hypersurfaces $\Sigma := \Sigma(t)$, each of which is parameterized by a constant value of the coordinate $t$. In this way, the three spatial coordinates are split from the one temporal coordinate and the resulting construction is called the $3+1$ decomposition of spacetime.
+
+## Decomposition
+
+### Construction of Metric and normal vector
+Given such constant-time hypersurface, $\Sigma_t$, belonging to the foliation $\Sigma$, we can introduce a timelike four-vector $n$ normal to the hypersurface at each event in spacetime and such that its dual one-form $\Omega := \nabla_t$ is parallel to the gradient of the coordinate $t$.
+$$
+n_\mu = A \Omega_\mu = \nabla_\mu t
+$$
+with $n_\mu = \{A,0,0,0\}$ and $A$ a constant to be determined. If we now require that the four-vector $n$ defines an observer and thus that it measures the corresponding four-velocity, then from the normalization condition on timelike four-vectors, $n^\mu n_\mu = -1$.
+$$
+\begin{align}
+n^\mu n_\mu &= g^{\mu\nu} n_\mu n_\nu \\
+&= g^{00} A^2 \\
+&= -\frac1{\alpha^2}A^2,
+\end{align}
+$$
+where we defined $g^{00} = -\frac{1}{\alpha^2}$. Now that:
+$$
+\begin{align}
+-\frac{1}{\alpha^2}A^2 &= -1\\
+A &= \pm\alpha\\
+\end{align}
+$$
+$$
+\left\{
+\begin{matrix}+ & \text{ Past Direction} \\
+- & \text{ Future Direction}
+\end{matrix}
+\right.
+$$
+and thus:
+$$
+A = -\alpha
+$$
+to showcase the future. Using this normal vector we can define the spatial metric for the hypersurface:
+$$
+\begin{matrix}
+\gamma_{\mu\nu} = g_{\mu\nu} + n_\mu n_\nu , & \gamma^{\mu\nu} = g^{\mu\nu} + n^\mu n^\nu
+\end{matrix}
+$$
+here $\gamma^{0\mu} = 0, \gamma_{ij} = g_{ij}$ but in general  $\gamma^{ij} \not = g^{ij}$. It's important to note that:
+$$
+\gamma^{ij}\gamma_{jk} = \delta^i_k
+$$
+Which means that these are the inverse of each other, so that the spacial metric can be used for raising and lowering indices of purely spacial vectors and tensors.
+
+The spatial metric and the hypersurface vector provide us a good toolkit to decompose any tensors into a purely spatial part and a purely timelike part.
+
+1. To obtain the spatial part we contract with the spatial projection operator:
+$$
+\gamma^{\mu}_{\cdot\nu} := g^{\mu\alpha}\gamma_{\alpha\nu}=g^\mu_{\cdot\nu} + n^\mu n_\nu = \delta^{\mu}_\nu + n^\mu n_\nu
+$$
+2. To obtain the timelike part we contract with the time projection operator:
+$$
+N^\mu_{\cdot \nu} := -n^\mu n_\nu
+$$
+The two projectors are orthogonal:
+$$
+\gamma^\alpha_{\cdot \nu}N^\mu_{\cdot \nu} = 0
+$$
+Therefore, a general four-vector can be decomposed as:
+$$
+U^\mu = \gamma^\mu_{\cdot \nu}U^\nu + N^{\mu}_{\cdot \nu}U^\nu
+$$
+Note that the spatial part is still a four-vector but now $V^t = 0$ whereas it has the covariant time component, $V_t = g_{\mu t} V^{\mu}$, which is non-zero in general. Analogous considerations can be done about tensors of any rank.
+
+### Construction of time vector
+We already know that the unit normal $n$ to a spacelike hypersurface $\Sigma_t$ does not represent the direction along which the time coordinate changes, that is, it is not the direction of the time derivative. Indeed, if we compute the contraction of the two tensors we get a non-unit value:
+$$
+n^\mu \Omega\mu = \frac1A n^\mu n_\mu = \frac1\alpha \not = 1
+$$
+Thus we introduce a time-vector, along which to carry out the time evolutions and that is dual to the surface one-form $\Omega$. Such a vector is just the time coordinate basis vector and is defined as the linear superposition of a purely temporal part and of a purely spatial one, namely:
+$$
+t = e_t =\partial_t := \alpha n +\beta
+$$
+Here $\beta$ is a purely spatial vector and it's usually referred to as the shift vector and will be another building block of the metric in 3+1 decomposition.
+
+![[Pasted image 20241024181900.png]]
+
+We can check that $t$ is a coordinate basis vector by verifying that:
+$$
+t^\mu \Omega_\mu = \alpha n^\mu \Omega_\mu + \beta^\mu \Omega_\mu = \frac\alpha\alpha = 1
+$$
+Using the components of $n$, 
+$$
+\begin{matrix} n_\mu= (-\alpha, 0,0,0), & n^\mu = \frac1\alpha (1, -\beta),\end{matrix}
+$$
+we can now express the generic line element in the 3+1 decomposition:
+$$
+ds^2 = -(\alpha^2 -\beta_i\beta^i)dt^2 + 2\beta_i dx^i dt + \gamma_{ij}dx^i dx^j
+$$
+This clearly shows that to measure the proper time we just have a $\beta^i = 0$.
+$$
+d\tau^2 = \alpha^2(t, x^j)dt^2
+$$
+while the shift vector measures the change of coordinates of a point from one to another hypersurface:
+$$
+x^i_{t+dt}= x^i_t - \beta^i(t,x^j)dt
+$$
+This can be related to the metric covariant and contravariant components:
+$$
+\begin{matrix}
+g_{\mu\nu} = \begin{pmatrix}-\alpha^2 + \beta_i \beta^i & \beta_i\\ \beta_i & \gamma_{ij}\end{pmatrix}, & g^{\mu\nu} = \begin{pmatrix}-\frac{1}{\alpha^2} & \frac{\beta^i}{\alpha^2} \\
+\frac{\beta^i}{\alpha^2} & \gamma^{ij} - \frac{\beta^i\beta^j}{\alpha^2}
+\end{pmatrix}
+\end{matrix}
+$$
+An important identity is then derivable from this:
+$$
+\sqrt{-g} = \alpha\sqrt{\gamma}
+$$
+The unit timelike normal $n$ can be associated to the four-velocity of a special class  of observers, which are referred to as normal or [[Eulerian Observers]]
+## Mathematical Properties
 We start off by decomposing the metric as below:
 $$
 \begin{align}

@@ -7,5 +7,7 @@
     "landscape": false,
     "margin": "2",
     "downscalePercent": 78
-  }
+  },
+  "newFileLocation": "current",
+  "attachmentFolderPath": "./attchs"
 }

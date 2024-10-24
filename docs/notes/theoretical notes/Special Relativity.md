@@ -85,4 +85,4 @@ $$
 
 As $v$ approaches $c$, the denominator approaches zero, causing the energy required to accelerate the object to approach infinity. This means that no massive object can be accelerated to or beyond the speed of light, making $c$ the ultimate speed limit in the universe. Only massless particles, such as photons, can travel at the speed of light.
 
-###### Jump to Next [[General Relativity Basics]]
+###### Jump to Next [[General Relativity]]
