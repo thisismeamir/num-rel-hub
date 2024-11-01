@@ -13,7 +13,6 @@ The intrinsically "covariant view" of Einstein's theory of general relativity is
 Furthermore, such a distinction of time and space is the simplest way to exploit a large literature on the numerical solution of hyperbolic partial differential equations as those of relativistic MHD. adopting this principle, we **foliate** spacetime in terms of a set of non-intersecting spacelike hypersurfaces $\Sigma := \Sigma(t)$, each of which is parameterized by a constant value of the coordinate $t$. In this way, the three spatial coordinates are split from the one temporal coordinate and the resulting construction is called the $3+1$ decomposition of spacetime.
 
 ## Decomposition
-
 ### Construction of Metric and normal vector
 Given such constant-time hypersurface, $\Sigma_t$, belonging to the foliation $\Sigma$, we can introduce a timelike four-vector $n$ normal to the hypersurface at each event in spacetime and such that its dual one-form $\Omega := \nabla_t$ is parallel to the gradient of the coordinate $t$.
 $$
@@ -148,10 +147,10 @@ $$
 \gamma^i_{jk} \equiv \frac12 \gamma^{il} \left(\partial_j\gamma_{kl} + \partial_k \gamma_{jl} + \partial_l \gamma_{jk}\right)
 $$
 
-## Intrinsic and Extrinsic Curvature pf Hyper-surfaces
+## Intrinsic and Extrinsic Curvature of Hyper-surfaces
 In $3+1$ decomposition spacetime is described as a set of three-dimensional hyper-surfaces of constant time. These hyper-surfaces have intrinsic curvature, given by the three dimensional Riemann tensor:
 $$
-\!^{(3)}R^{i}_{lkm} = \partial_k \gamma^i_{kl} -\partial_m\gamma^i_{kl} +\gamma^i_{kn}\gamma^n_{lm} - \gamma^i_{mn}\gamma^n_{kl}
+\!^{(3)}R^{i}_{lkm} = \partial_k \gamma^i_{lm} -\partial_m\gamma^i_{kl} +\gamma^i_{kn}\gamma^n_{lm} - \gamma^i_{mn}\gamma^n_{kl}
 $$
 In addition to the intrinsic curvature, the hyper-surfaces of constant time has an extrinsic curvature $K_{ij}$ arising from its embedding in four-dimensional spacetime.
 $$
