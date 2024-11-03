@@ -11,10 +11,10 @@
             "id": "00502cdb11d3a961",
             "type": "leaf",
             "state": {
-              "type": "empty",
+              "type": "graph",
               "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -192,19 +192,25 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "c59c84ced1212cd7",
+  "active": "00502cdb11d3a961",
   "lastOpenFiles": [
-    "docs/References.md",
+    "docs/notes/theoretical notes/Continuity Equation.md",
+    "docs/notes/theoretical notes/Energy Momentum Tensor Conservation.md",
+    "docs/notes/theoretical notes/3+1 Decomposition.md",
+    "docs/notes/numerical methods/Galerkin Method.md",
+    "docs/notes/numerical methods/Finite Volume Method.md",
+    "docs/notes/numerical methods/Finite Difference Method.md",
+    "docs/notes/numerical methods/Discontinuous Galerkin Method.md",
     "docs/notes/numerical methods/Conservative Finite Difference Method.md",
+    "notebooks/educative/simple-bbh/unequal_mass_merger.mp4",
+    "notebooks/educative/simple-bbh/equal_mass_merger.mp4",
+    "docs/References.md",
     "docs/notes/theoretical notes/Formulation of  Fluid in 3+1 Decompositoin.md",
     "notebooks/educative/simple-bbh/bbh.ipynb.tmp",
     "docs/notes/theoretical notes/Bianchi Identities.md",
     "docs/notes/theoretical notes/ADM Formulation.md",
-    "docs/notes/theoretical notes/3+1 Decomposition.md",
     "docs/notes/theoretical notes/attchs/Pasted image 20241024181900.png",
     "docs/notes/theoretical notes/General Relativistic Magnetohydrodynamics.md",
-    "docs/notes/numerical methods/Discontinuous Galerkin Method.md",
-    "docs/notes/numerical methods/Galerkin Method.md",
     "docs/notes/Notes.md",
     "docs/Docs.md",
     "docs/notes/theoretical notes/The 3+1 Valencia formulation of GRMHD equations for numerical relativity.md",
@@ -222,10 +228,6 @@
     "docs/notes/theoretical notes/attchs",
     "Pasted image 20241024181900 1.png",
     "Pasted image 20241024181843.png",
-    "docs/notes/numerical methods/Finite Volume Method.md",
-    "docs/notes/numerical methods/Finite Difference Method.md",
-    "README.md",
-    "docs/notes/theoretical notes/Continuity Equation.md",
     "Untitled.canvas",
     "docs/notes/Untitled.canvas",
     "Pasted image 20241017122408.png",
@@ -235,8 +237,6 @@
     "Pasted image 20241017122643.png",
     "data/raw/GCH",
     "data/processed/GCH",
-    "docs/reports/GCH",
-    "docs/papers/GCH",
-    "docs/notes/GCH"
+    "docs/reports/GCH"
   ]
 }
