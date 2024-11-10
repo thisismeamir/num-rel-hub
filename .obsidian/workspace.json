@@ -199,6 +199,10 @@
   },
   "active": "00502cdb11d3a961",
   "lastOpenFiles": [
+    "scripts/spectre/spectre-multicore.bash",
+    "scripts/spectre/spectre-mpi.bash",
+    "scripts/spectre-mpi.bash",
+    "scripts/spectre-multicore.bash",
     "docs/References.md",
     "scripts/spectre/LocalCompilation.md",
     "docs/reports/How to Install spECTRE Locally.md",
@@ -229,7 +233,6 @@
     "docs/notes/theoretical notes/Formulation of the GRMHD equations in 3+1 Decomposition.md",
     "docs/notes/theoretical notes/Faraday tensor.md",
     "scripts/enhancement/enhancement.md",
-    "scripts/analysis/analysis.md",
     "docs/notes/theoretical notes/attchs/Pasted image 20241024192936.png",
     "docs/notes/theoretical notes/attchs",
     "Pasted image 20241024181900 1.png",
@@ -239,9 +242,6 @@
     "Pasted image 20241017122408.png",
     "notebooks/educative/Galerkin Method.nb",
     "docs/notes/theoretical notes",
-    "docs/notes/numerical methods",
-    "Pasted image 20241017122643.png",
-    "data/raw/GCH",
-    "data/processed/GCH"
+    "Pasted image 20241017122643.png"
   ]
 }
