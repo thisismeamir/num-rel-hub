@@ -11,10 +11,15 @@
             "id": "00502cdb11d3a961",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "scripts/spectre/LocalCompilation.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "LocalCompilation"
             }
           }
         ]
@@ -153,8 +158,8 @@
                 "attachmentId": -1,
                 "follow": "zt-reader"
               },
-              "icon": "highlighter",
-              "title": "Zotero Annotations"
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
             }
           }
         ],
@@ -171,8 +176,8 @@
             "state": {
               "type": "calendar",
               "state": {},
-              "icon": "calendar-with-checkmark",
-              "title": "Calendar"
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
             }
           }
         ]
@@ -194,6 +199,11 @@
   },
   "active": "00502cdb11d3a961",
   "lastOpenFiles": [
+    "docs/References.md",
+    "scripts/spectre/LocalCompilation.md",
+    "docs/reports/How to Install spECTRE Locally.md",
+    "src/spectre",
+    "docs/Docs.md",
     "docs/notes/theoretical notes/Continuity Equation.md",
     "docs/notes/theoretical notes/Energy Momentum Tensor Conservation.md",
     "docs/notes/theoretical notes/3+1 Decomposition.md",
@@ -204,7 +214,6 @@
     "docs/notes/numerical methods/Conservative Finite Difference Method.md",
     "notebooks/educative/simple-bbh/unequal_mass_merger.mp4",
     "notebooks/educative/simple-bbh/equal_mass_merger.mp4",
-    "docs/References.md",
     "docs/notes/theoretical notes/Formulation of  Fluid in 3+1 Decompositoin.md",
     "notebooks/educative/simple-bbh/bbh.ipynb.tmp",
     "docs/notes/theoretical notes/Bianchi Identities.md",
@@ -212,7 +221,6 @@
     "docs/notes/theoretical notes/attchs/Pasted image 20241024181900.png",
     "docs/notes/theoretical notes/General Relativistic Magnetohydrodynamics.md",
     "docs/notes/Notes.md",
-    "docs/Docs.md",
     "docs/notes/theoretical notes/The 3+1 Valencia formulation of GRMHD equations for numerical relativity.md",
     "docs/notes/theoretical notes/Eulerian Conservative Formulation.md",
     "docs/notes/theoretical notes/Conservative Formulations of GRMHD equations for numerical simulations.md",
@@ -222,8 +230,6 @@
     "docs/notes/theoretical notes/Faraday tensor.md",
     "scripts/enhancement/enhancement.md",
     "scripts/analysis/analysis.md",
-    "docs/notes/theoretical notes/Eulerian Observers.md",
-    "docs/notes/theoretical notes/Relativistic Hydrodynamics.md",
     "docs/notes/theoretical notes/attchs/Pasted image 20241024192936.png",
     "docs/notes/theoretical notes/attchs",
     "Pasted image 20241024181900 1.png",
@@ -236,7 +242,6 @@
     "docs/notes/numerical methods",
     "Pasted image 20241017122643.png",
     "data/raw/GCH",
-    "data/processed/GCH",
-    "docs/reports/GCH"
+    "data/processed/GCH"
   ]
 }
