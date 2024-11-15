@@ -104,4 +104,4 @@ make -j$(nproc) test-executables
 - **HPC Systems**: For HPC systems, consider using the MPI version of Charm++ (e.g., `mpi-linux-x86_64`) instead of multicore.
 - **Debug Mode**: Set `CMAKE_BUILD_TYPE` to "Debug" instead of "Release" for development.
 - **Additional CMake Options**: Add options as needed, such as `ENABLE_OPENMP=ON` for OpenMP support.
-```
+#script #installation #spectre
