@@ -1,0 +1,331 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     12270,        323]
+NotebookOptionsPosition[     10087,        278]
+NotebookOutlinePosition[     10483,        294]
+CellTagsIndexPosition[     10440,        291]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"<<", "xAct`xTensor`"}]], "Input",
+ CellChangeTimes->{{3.941013195622096*^9, 3.941013200526187*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"60d3a521-e4d5-4244-a150-b36ea6361ffd"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Formulation of Discontinuous Galerkin Methods for Relativistic Astrophysics\
+\>", "Title",
+ CellChangeTimes->{{3.941010990732753*^9, 
+  3.941011040255444*^9}},ExpressionUUID->"5cdb3e7d-34f9-43f3-832f-\
+ae654857b8ec"],
+
+Cell["Paper review and derivations [doi:10.1016/j.jcp.2016.02.031]", \
+"Subtitle",
+ CellChangeTimes->{{3.941011043130217*^9, 
+  3.94101104977137*^9}},ExpressionUUID->"ed342c34-a8fd-4cd1-b5b7-\
+8c48df15c146"],
+
+Cell["\<\
+The Discontinuous Galerkin algorithm is a powerful method for solving partial \
+differential equations, especially for evolution equations in conservation \
+form. Since the algorithm involves integration over volume elements, it is \
+not immediately obvious that it will generalize easily to arbitrary \
+time-dependent curved spacetimes. 
+
+We show how to formulate the algorithm in such spacetimes for applications in \
+relativistic astrophysics. We also show how to formulate the algorithm for \
+equations in non-conservative form, such as Einstein\[CloseCurlyQuote]s field \
+equations themselves. 
+
+We find two computationally distinct formulations in both cases, one of which \
+has seldom been used before for flat space in curvilinear coordinates but \
+which may be more efficiency. 
+
+We also give a new derivation of the Arbitrary Lagrangian-Eulerian algorithm \
+using 4-vector methods that is much simpler than the usual derivation and \
+explains why the method preserves the conservation form of the equations.   
+
+The various formulations are explored with some simple numerical experiments \
+that also investigate the effect of the metric identities on the results. The \
+results of this paper may also be of interest to practitioners of DG working \
+with curvilinear elements in flat space.\
+\>", "Abstract",
+ CellChangeTimes->{{3.9410110933140793`*^9, 
+  3.941011448665667*^9}},ExpressionUUID->"82e2e13a-9af5-4809-b2a4-\
+89f8595af848"],
+
+Cell[CellGroupData[{
+
+Cell["Introduction", "Chapter",
+ CellChangeTimes->{{3.9410110558359118`*^9, 
+  3.941011057228459*^9}},ExpressionUUID->"793faa93-a8c5-4385-aaec-\
+7bec5f624d73"],
+
+Cell[TextData[{
+ "We often use the finite-volume methods, for astrophysics simulations that \
+involve hydrodynamics or magnetohydrodynamics. As every simulation there are \
+two major challenges of such simulations ",
+ StyleBox["accuracy and computational efficiency",
+  FontSlant->"Italic"],
+ ". \n\nMany of the important problems we are facing cannot be solved to the \
+level of accuracy required using the currently available hardware resources. \
+This accuracy can be improved only by increasing numerical resolution. If \
+parts of the solution are smooth so that one might want to take advantage of \
+high-order methods to improve the accuracy, current methods eventually run \
+into problems.\n\nIf we use high-order finite-volume, we would need more \
+communication between cells. Ultimately, when the number of cells and \
+processors gets large enough, the communication time begins to limit the \
+overall computation."
+}], "Text",
+ CellChangeTimes->{{3.941011459694031*^9, 3.941011711166541*^9}, {
+  3.94101174757334*^9, 3.941011750884013*^9}, {3.9410131129699783`*^9, 
+  3.9410131158290663`*^9}},ExpressionUUID->"4a7b3453-cd16-4715-9af6-\
+5f0726efb0e7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Discontinuous Galerkin for Equations in Conservation Form", "Chapter",
+ CellChangeTimes->{{3.941013129376047*^9, 
+  3.941013144890374*^9}},ExpressionUUID->"b2446a80-c734-4352-8310-\
+c072f1def77f"],
+
+Cell[CellGroupData[{
+
+Cell["Form of the equations", "Section",
+ CellChangeTimes->{{3.941013151212449*^9, 
+  3.941013155110952*^9}},ExpressionUUID->"39e0fd16-2183-4115-9f0a-\
+93327adb19c1"],
+
+Cell["\<\
+In general time-dependent curved spacetime, a conservation law can be written \
+in terms of a 4-divergence, and the more general form has a source as well. \
+So let\[CloseCurlyQuote]s define a manifold, and the covariant derivative:\
+\>", "Text",
+ CellChangeTimes->{{3.941013156826989*^9, 3.941013188427307*^9}, {
+  3.94101344291057*^9, 
+  3.941013454871272*^9}},ExpressionUUID->"4b4a4159-c54f-4f3e-9312-\
+bf96194bc7f7"],
+
+Cell[BoxData[
+ RowBox[{"DefManifold", "[", 
+  RowBox[{"M", ",", " ", "4", ",", " ", 
+   RowBox[{"{", 
+    RowBox[{
+    "a", ",", "b", ",", "c", ",", "d", ",", "e", ",", "f", ",", "g", ",", "h",
+      ",", "i", ",", "j", ",", "k", ",", "l", ",", "m", ",", "p", ",", "q", 
+     ",", "r", ",", "s", ",", "t", ",", "u", ",", "v", ",", "w", ",", "x", 
+     ",", "y", ",", "z"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.941013251963105*^9, 3.9410132891669407`*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"0a897390-1c00-49b1-ba08-f212375fc23a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"DefTensor", "[", 
+  RowBox[{
+   RowBox[{"F", "[", "a", "]"}], ",", "M"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"DefScalarFunction", "[", 
+  RowBox[{
+   RowBox[{"Source", "[", "]"}], ",", "M"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.941013294884448*^9, 3.941013307981312*^9}, {
+  3.941013653430562*^9, 3.9410136624680977`*^9}, {3.9410137518432083`*^9, 
+  3.941013768198454*^9}},
+ CellLabel->"In[33]:=",ExpressionUUID->"052a2f20-5cbb-4d07-b53c-dab721e0378e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ValidateSymbol", "used", 
+   "\"Symbol \\!\\(\\*RowBox[{\\\"\\\\\\\"F\\\\\\\"\\\"}]\\) is already used \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"as a tensor\\\\\\\"\\\"}]\\).\"", 2, 33, 8, 
+   21381958094651641081, "Local", "xAct`xCore`ValidateSymbol"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{{3.941013752989038*^9, 3.941013769358307*^9}},
+ CellLabel->
+  "During evaluation of \
+In[33]:=",ExpressionUUID->"c5a74386-6769-423d-9e90-8d35ae98b3af"],
+
+Cell[BoxData[
+ RowBox[{"DefScalarFunction", "[", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox["Source",
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    $CellContext`Source[],
+    Editable->False], ",", "M"}], "]"}]], "Output",
+ CellChangeTimes->{3.941013769361899*^9},
+ CellLabel->"Out[34]=",ExpressionUUID->"83b3afe8-cbd4-4f36-aca2-b73b20f4f627"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"DefCovD", "[", 
+  RowBox[{"covD", "[", 
+   RowBox[{"-", "a"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.941013310049204*^9, 3.941013412575034*^9}, 
+   3.941013628422242*^9},
+ CellLabel->"In[7]:=",ExpressionUUID->"18fa3343-edad-493d-b7ec-f23006506cdd"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"covD", "[", 
+    RowBox[{"-", "a"}], "]"}], "[", 
+   RowBox[{"F", "[", "a", "]"}], "]"}], "==", " ", "0"}]], "Input",
+ CellChangeTimes->{{3.941013632271884*^9, 3.941013673888502*^9}, 
+   3.941013722247898*^9},
+ CellLabel->"In[26]:=",ExpressionUUID->"503d234a-18a4-42eb-a9de-915abfb55849"],
+
+Cell[BoxData[
+ RowBox[{
+  InterpretationBox[
+   StyleBox[
+    RowBox[{
+     SubscriptBox["\[EmptyDownTriangle]", "a"], GridBox[{
+       {"F", 
+        StyleBox[GridBox[{
+           {"a"},
+           {" "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}]}],
+    ShowAutoStyles->False,
+    AutoSpacing->False],
+   $CellContext`covD[-$CellContext`a][
+    $CellContext`F[$CellContext`a]],
+   Editable->False], "\[Equal]", "0"}]], "Output",
+ CellChangeTimes->{{3.9410136467151957`*^9, 3.941013674370378*^9}, 
+   3.941013722642046*^9},
+ CellLabel->"Out[26]=",ExpressionUUID->"341310b8-5213-4525-87a3-03d381540ea7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"covD", "[", 
+    RowBox[{"-", "a"}], "]"}], "[", 
+   RowBox[{"F", "[", "a", "]"}], "]"}], "==", " ", "Source"}]], "Input",
+ CellChangeTimes->{{3.94101372966875*^9, 3.941013773397161*^9}},
+ CellLabel->"In[35]:=",ExpressionUUID->"4d8a44d6-0ac6-4eb2-b2f3-4d7434626fe1"],
+
+Cell[BoxData[
+ RowBox[{
+  InterpretationBox[
+   StyleBox[
+    RowBox[{
+     SubscriptBox["\[EmptyDownTriangle]", "a"], GridBox[{
+       {"F", 
+        StyleBox[GridBox[{
+           {"a"},
+           {" "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}]}],
+    ShowAutoStyles->False,
+    AutoSpacing->False],
+   $CellContext`covD[-$CellContext`a][
+    $CellContext`F[$CellContext`a]],
+   Editable->False], "\[Equal]", "Source"}]], "Output",
+ CellChangeTimes->{3.941013775456159*^9},
+ CellLabel->"Out[35]=",ExpressionUUID->"80129326-94dd-4914-94aa-5d33e51a928a"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{720., 755.25},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+FrontEndVersion->"13.2 for Linux x86 (64-bit) (November 18, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"6432c3e8-39e6-41b7-a484-069e30c36cbb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 201, 3, 29, "Input",ExpressionUUID->"60d3a521-e4d5-4244-a150-b36ea6361ffd"],
+Cell[CellGroupData[{
+Cell[784, 27, 226, 5, 222, "Title",ExpressionUUID->"5cdb3e7d-34f9-43f3-832f-ae654857b8ec"],
+Cell[1013, 34, 207, 4, 53, "Subtitle",ExpressionUUID->"ed342c34-a8fd-4cd1-b5b7-8c48df15c146"],
+Cell[1223, 40, 1456, 27, 545, "Abstract",ExpressionUUID->"82e2e13a-9af5-4809-b2a4-89f8595af848"],
+Cell[CellGroupData[{
+Cell[2704, 71, 159, 3, 69, "Chapter",ExpressionUUID->"793faa93-a8c5-4385-aaec-7bec5f624d73"],
+Cell[2866, 76, 1161, 19, 311, "Text",ExpressionUUID->"4a7b3453-cd16-4715-9af6-5f0726efb0e7"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4064, 100, 202, 3, 117, "Chapter",ExpressionUUID->"b2446a80-c734-4352-8310-c072f1def77f"],
+Cell[CellGroupData[{
+Cell[4291, 107, 166, 3, 68, "Section",ExpressionUUID->"39e0fd16-2183-4115-9f0a-93327adb19c1"],
+Cell[4460, 112, 430, 8, 81, "Text",ExpressionUUID->"4b4a4159-c54f-4f3e-9312-bf96194bc7f7"],
+Cell[4893, 122, 545, 10, 55, "Input",ExpressionUUID->"0a897390-1c00-49b1-ba08-f212375fc23a"],
+Cell[CellGroupData[{
+Cell[5463, 136, 486, 10, 51, "Input",ExpressionUUID->"052a2f20-5cbb-4d07-b53c-dab721e0378e"],
+Cell[5952, 148, 487, 10, 28, "Message",ExpressionUUID->"c5a74386-6769-423d-9e90-8d35ae98b3af"],
+Cell[6442, 160, 359, 10, 33, "Output",ExpressionUUID->"83b3afe8-cbd4-4f36-aca2-b73b20f4f627"]
+}, Open  ]],
+Cell[6816, 173, 280, 6, 29, "Input",ExpressionUUID->"18fa3343-edad-493d-b7ec-f23006506cdd"],
+Cell[CellGroupData[{
+Cell[7121, 183, 335, 8, 32, "Input",ExpressionUUID->"503d234a-18a4-42eb-a9de-915abfb55849"],
+Cell[7459, 193, 1135, 33, 41, "Output",ExpressionUUID->"341310b8-5213-4525-87a3-03d381540ea7"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8631, 231, 313, 7, 32, "Input",ExpressionUUID->"4d8a44d6-0ac6-4eb2-b2f3-4d7434626fe1"],
+Cell[8947, 240, 1088, 32, 64, "Output",ExpressionUUID->"80129326-94dd-4914-94aa-5d33e51a928a"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

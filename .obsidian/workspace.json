@@ -13,16 +13,29 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "scripts/spectre/LocalCompilation.md",
+                "file": "docs/notes/theoretical notes/3+1 Decomposition.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "LocalCompilation"
+              "title": "3+1 Decomposition"
+            }
+          },
+          {
+            "id": "ca740af6894f7444",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.7.7"
+              },
+              "icon": "lucide-file",
+              "title": "Release Notes 1.7.7"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -197,32 +210,46 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "00502cdb11d3a961",
+  "active": "ca740af6894f7444",
   "lastOpenFiles": [
-    "scripts/spectre/spectre-multicore.bash",
-    "scripts/spectre/spectre-mpi.bash",
-    "scripts/spectre-mpi.bash",
-    "scripts/spectre-multicore.bash",
-    "docs/References.md",
+    "presentations/19Nov2024-DrNouriPresentation/media/videos/presentation/1080p60/partial_movie_files/Presentation/partial_movie_file_list.txt",
+    "presentations/19Nov2024-DrNouriPresentation/media/videos/presentation/1080p60/partial_movie_files/Presentation/1370424804_3636024140_1632102785.mp4",
+    "presentations/19Nov2024-DrNouriPresentation/media/videos/presentation/1080p60/partial_movie_files/Presentation/1370424804_2475379470_3613546419.mp4",
+    "presentations/19Nov2024-DrNouriPresentation/media/videos/presentation/1080p60/partial_movie_files/Presentation/1370424804_2586771187_56566016.mp4",
+    "presentations/19Nov2024-DrNouriPresentation/media/videos/presentation/1080p60/partial_movie_files/Presentation/1370424804_682046124_3172068299.mp4",
+    "presentations/19Nov2024-DrNouriPresentation/media/texts/22bdf1a11aadcb80_.svg",
+    "presentations/19Nov2024-DrNouriPresentation/media/texts/22bdf1a11aadcb80.svg",
+    "presentations/19Nov2024-DrNouriPresentation/media/texts/dda259e02ff3dd69_.svg",
+    "presentations/19Nov2024-DrNouriPresentation/media/texts/dda259e02ff3dd69.svg",
+    "presentations/19Nov2024-DrNouriPresentation/media/videos/presentation/1080p60/partial_movie_files/Presentation/1370424804_2214700984_2877835190.mp4",
+    "presentations/19Nov2024-DrNouriPresentation/media/Tex/1d9baeb7d80c3e07_.svg",
+    "presentations/19Nov2024-DrNouriPresentation/media/Tex/1d9baeb7d80c3e07.svg",
+    "presentations/19Nov2024-DrNouriPresentation/media/Tex/1d9baeb7d80c3e07.dvi",
+    "presentations/19Nov2024-DrNouriPresentation/media/Tex/1d9baeb7d80c3e07.aux",
+    "presentations/19Nov2024-DrNouriPresentation/media/Tex/1d9baeb7d80c3e07.log",
+    "presentations/19Nov2024-DrNouriPresentation/media/Tex/1d9baeb7d80c3e07.tex",
+    "presentations/19Nov2024-DrNouriPresentation/media/videos/presentation/1080p60/partial_movie_files/Presentation/1370424804_3636024140_3153220658.mp4",
+    "presentations/19Nov2024-DrNouriPresentation/media/texts/0b258f4979b39537_.svg",
+    "presentations/19Nov2024-DrNouriPresentation/media/texts/0b258f4979b39537.svg",
+    "presentations/19Nov2024-DrNouriPresentation/media/texts/0a6bd4d3e40cc972_.svg",
+    "presentations/19Nov2024-DrNouriPresentation/media/texts/0a6bd4d3e40cc972.svg",
+    "presentations/19Nov2024-DrNouriPresentation/presentation.md",
+    "docs/notes/theoretical notes/ADM Formulation.md",
+    "docs/notes/theoretical notes/3+1 Decomposition.md",
+    "docs/reports/Numerical Relativity.md",
     "scripts/spectre/LocalCompilation.md",
+    "docs/References.md",
     "docs/reports/How to Install spECTRE Locally.md",
-    "src/spectre",
     "docs/Docs.md",
     "docs/notes/theoretical notes/Continuity Equation.md",
     "docs/notes/theoretical notes/Energy Momentum Tensor Conservation.md",
-    "docs/notes/theoretical notes/3+1 Decomposition.md",
     "docs/notes/numerical methods/Galerkin Method.md",
     "docs/notes/numerical methods/Finite Volume Method.md",
     "docs/notes/numerical methods/Finite Difference Method.md",
     "docs/notes/numerical methods/Discontinuous Galerkin Method.md",
     "docs/notes/numerical methods/Conservative Finite Difference Method.md",
-    "notebooks/educative/simple-bbh/unequal_mass_merger.mp4",
-    "notebooks/educative/simple-bbh/equal_mass_merger.mp4",
     "docs/notes/theoretical notes/Formulation of  Fluid in 3+1 Decompositoin.md",
-    "notebooks/educative/simple-bbh/bbh.ipynb.tmp",
     "docs/notes/theoretical notes/Bianchi Identities.md",
-    "docs/notes/theoretical notes/ADM Formulation.md",
-    "docs/notes/theoretical notes/attchs/Pasted image 20241024181900.png",
     "docs/notes/theoretical notes/General Relativistic Magnetohydrodynamics.md",
     "docs/notes/Notes.md",
     "docs/notes/theoretical notes/The 3+1 Valencia formulation of GRMHD equations for numerical relativity.md",
@@ -231,17 +258,7 @@
     "docs/notes/theoretical notes/General Relativity.md",
     "docs/notes/theoretical notes/Special Relativity.md",
     "docs/notes/theoretical notes/Formulation of the GRMHD equations in 3+1 Decomposition.md",
-    "docs/notes/theoretical notes/Faraday tensor.md",
-    "scripts/enhancement/enhancement.md",
-    "docs/notes/theoretical notes/attchs/Pasted image 20241024192936.png",
-    "docs/notes/theoretical notes/attchs",
-    "Pasted image 20241024181900 1.png",
-    "Pasted image 20241024181843.png",
     "Untitled.canvas",
-    "docs/notes/Untitled.canvas",
-    "Pasted image 20241017122408.png",
-    "notebooks/educative/Galerkin Method.nb",
-    "docs/notes/theoretical notes",
-    "Pasted image 20241017122643.png"
+    "docs/notes/Untitled.canvas"
   ]
 }

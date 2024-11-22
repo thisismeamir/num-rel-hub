@@ -76,7 +76,7 @@ U^\mu = \gamma^\mu_{\cdot \nu}U^\nu + N^{\mu}_{\cdot \nu}U^\nu
 $$
 Note that the spatial part is still a four-vector but now $V^t = 0$ whereas it has the covariant time component, $V_t = g_{\mu t} V^{\mu}$, which is non-zero in general. Analogous considerations can be done about tensors of any rank.
 
-### Construction of time vector
+## Construction of time vector
 We already know that the unit normal $n$ to a spacelike hypersurface $\Sigma_t$ does not represent the direction along which the time coordinate changes, that is, it is not the direction of the time derivative. Indeed, if we compute the contraction of the two tensors we get a non-unit value:
 $$
 n^\mu \Omega\mu = \frac1A n^\mu n_\mu = \frac1\alpha \not = 1
