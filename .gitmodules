@@ -1,0 +1,3 @@
+[submodule "notebooks/educative/nrpy-tutorial"]
+	path = notebooks/educative/nrpy-tutorial
+	url = git@github.com:zachetienne/nrpytutorial.git

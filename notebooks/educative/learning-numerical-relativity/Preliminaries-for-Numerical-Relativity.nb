@@ -1,0 +1,416 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     15462,        408]
+NotebookOptionsPosition[     11452,        344]
+NotebookOutlinePosition[     11961,        361]
+CellTagsIndexPosition[     11918,        358]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Preliminaries for
+Numerical
+Relativity\
+\>", "Title",
+ CellChangeTimes->{{3.9414223310799932`*^9, 
+  3.941422341125276*^9}},ExpressionUUID->"9cfa35f8-3c12-4ba1-b2ae-\
+64752dc7ffdd"],
+
+Cell["Numerical Relativity Lecture 0", "Subtitle",
+ CellChangeTimes->{{3.941422347423695*^9, 3.941422361023065*^9}, {
+  3.9414228568861437`*^9, 
+  3.941422867296605*^9}},ExpressionUUID->"a635aef5-a63e-415f-a7c2-\
+56c6f69088f0"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Brief Introduction 
+of General Relativity\
+\>", "Chapter",
+ CellChangeTimes->{{3.94142236693016*^9, 
+  3.941422375426759*^9}},ExpressionUUID->"4eefecf9-73d6-41d8-bc76-\
+593822af5980"],
+
+Cell[CellGroupData[{
+
+Cell["Einstein\[CloseCurlyQuote]s Equation", "Section",
+ CellChangeTimes->{{3.941422449031193*^9, 
+  3.941422456661232*^9}},ExpressionUUID->"6558efed-e12e-4699-88db-\
+d3dab582827a"],
+
+Cell["\<\
+The purpose of numerical relativity is to clarify the nature of spacetime \
+dynamics and dynamical evolution of general relativistic objects, by \
+numerically solving Einstein\[CloseCurlyQuote]s Equation.\
+\>", "Text",
+ CellChangeTimes->{{3.941422896763225*^9, 
+  3.941422953918252*^9}},ExpressionUUID->"f8cc670a-b5e0-445c-a4ba-\
+62469e144734"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  TemplateBox[<|"boxes" -> FormBox[
+      RowBox[{
+        SubscriptBox[
+         StyleBox["G", "TI"], 
+         RowBox[{
+           StyleBox["a", "TI"], 
+           StyleBox["b", "TI"]}]], "\[LongEqual]", "8", "\[Pi]", 
+        SubscriptBox[
+         StyleBox["T", "TI"], 
+         RowBox[{
+           StyleBox["a", "TI"], 
+           StyleBox["b", "TI"]}]]}], TraditionalForm], "errors" -> {}, 
+    "input" -> "G_{ab}=8\\pi T_{ab}", "state" -> "Boxes"|>,
+   "TeXAssistantTemplate"], 
+  TraditionalForm]],ExpressionUUID->"2e1513a7-5865-48b8-9620-dbb4bc8fb64d"]], \
+"Text",
+ CellChangeTimes->{{3.94142296254116*^9, 3.94142302544803*^9}},
+ TextAlignment->Center,ExpressionUUID->"c9a50400-a50e-47b7-99fc-1ec1e6965666"],
+
+Cell[TextData[{
+ "As we know ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       SubscriptBox[
+        StyleBox["G", "TI"], 
+        RowBox[{
+          StyleBox["a", "TI"], "\[NegativeThinSpace]", 
+          StyleBox["b", "TI"]}]], TraditionalForm], "errors" -> {}, "input" -> 
+     "G_{a\\!b}", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "c1d208a3-0058-4f14-9541-733c57bb9b28"],
+ " is the Einstein\[CloseCurlyQuote]s tensor and is defined."
+}], "Text",
+ CellChangeTimes->{{3.941423053319808*^9, 
+  3.941423084738908*^9}},ExpressionUUID->"f279b423-33dd-406e-8363-\
+399a7be347ac"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  TemplateBox[<|"boxes" -> FormBox[
+      RowBox[{
+        SubscriptBox[
+         StyleBox["G", "TI"], 
+         RowBox[{
+           StyleBox["a", "TI"], 
+           StyleBox["b", "TI"]}]], "\[LongEqual]", 
+        SubscriptBox[
+         StyleBox["R", "TI"], 
+         RowBox[{
+           StyleBox["a", "TI"], "\[NegativeThinSpace]", 
+           StyleBox["b", "TI"]}]], "-", 
+        FractionBox["1", "2"], 
+        SubscriptBox[
+         StyleBox["g", "TI"], 
+         RowBox[{
+           StyleBox["a", "TI"], "\[NegativeThinSpace]", 
+           StyleBox["b", "TI"]}]], 
+        StyleBox["R", "TI"]}], TraditionalForm], "errors" -> {}, "input" -> 
+    "G_{ab}=R_{a\\!b} -\\frac12 g_{a\\!b}R", "state" -> "Boxes"|>,
+   "TeXAssistantTemplate"], 
+  TraditionalForm]],ExpressionUUID->"77e2ca4b-5bdc-4822-9207-d556f11754ff"]], \
+"Text",
+ CellChangeTimes->{{3.94142296254116*^9, 3.94142302544803*^9}},
+ TextAlignment->Center,ExpressionUUID->"75c92c0c-cc29-409b-8a5d-85813c166f8c"],
+
+Cell[TextData[{
+ "Where ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         SubscriptBox[
+          StyleBox["R", "TI"], 
+          RowBox[{
+            StyleBox["a", "TI"], "\[NegativeThinSpace]", 
+            StyleBox["b", "TI"]}]], ",", 
+         StyleBox["R", "TI"]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "R_{a\\!b}, R", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "9056c575-0abf-4439-a01b-5ad80dfd9901"],
+ " are Ricci tensor and Ricci scalar respectively. And ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       SubscriptBox[
+        StyleBox["g", "TI"], 
+        RowBox[{
+          StyleBox["a", "TI"], "\[NegativeThinSpace]", 
+          StyleBox["b", "TI"]}]], TraditionalForm], "errors" -> {}, "input" -> 
+     "g_{a\\!b}", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "ef5e6c97-b107-4060-aa04-c93e3e802ae3"],
+ " is the spacetime metric, which determines the invariant spacetime interval \
+between two nearby points."
+}], "Text",
+ CellChangeTimes->{{3.941423124158573*^9, 
+  3.941423208131674*^9}},ExpressionUUID->"0580d410-e362-4e76-b2a4-\
+d9c008dba5c2"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  TemplateBox[<|"boxes" -> FormBox[
+      RowBox[{
+        StyleBox["d", "TI"], 
+        SuperscriptBox[
+         StyleBox["s", "TI"], "2"], "\[LongEqual]", 
+        SubscriptBox[
+         StyleBox["g", "TI"], 
+         RowBox[{"\[Mu]", "\[NegativeThinSpace]", "\[Nu]"}]], 
+        StyleBox["d", "TI"], "\[NegativeThinSpace]", 
+        SuperscriptBox[
+         StyleBox["x", "TI"], "\[Mu]"], 
+        StyleBox["d", "TI"], "\[NegativeThinSpace]", 
+        SuperscriptBox[
+         StyleBox["x", "TI"], "\[Nu]"]}], TraditionalForm], "errors" -> {}, 
+    "input" -> "ds^2 = g_{\\mu\\!\\nu}d\\!x^\\mu d\\!x^\\nu", "state" -> 
+    "Boxes"|>,
+   "TeXAssistantTemplate"], 
+  TraditionalForm]],ExpressionUUID->"9ea0baa3-a33e-4fa5-87a2-69a29e6daef7"]], \
+"Text",
+ CellChangeTimes->{{3.94142296254116*^9, 3.94142302544803*^9}, {
+  3.941423242606786*^9, 3.94142324346542*^9}},
+ TextAlignment->Center,ExpressionUUID->"704d3ddd-5186-472f-b611-2de2b6add602"]
+}, Open  ]],
+
+Cell["Nature of Einstein\[CloseCurlyQuote]s Equation", "Section",
+ CellChangeTimes->{{3.941422460766659*^9, 
+  3.9414224716509047`*^9}},ExpressionUUID->"a47f4286-6f57-480f-b25c-\
+bcbf92ebf524"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Gravitational Waves", "Chapter",
+ CellChangeTimes->{{3.941422382278694*^9, 
+  3.941422385967266*^9}},ExpressionUUID->"253eae39-540a-4b23-9b25-\
+f53d3bd2a2da"],
+
+Cell["Linearized Einstein\[CloseCurlyQuote]s Equation", "Section",
+ CellChangeTimes->{{3.9414224751328793`*^9, 
+  3.941422482106552*^9}},ExpressionUUID->"73490555-2ad4-475a-a441-\
+df5a563b64d6"],
+
+Cell["Propagation of Gravitational Waves", "Section",
+ CellChangeTimes->{{3.941422485322294*^9, 3.941422491360358*^9}, {
+  3.941422586094822*^9, 
+  3.941422586176474*^9}},ExpressionUUID->"049667c6-16ea-4907-bc92-\
+829dfe5ff357"],
+
+Cell["Generation of Gravitational Waves", "Section",
+ CellChangeTimes->{{3.941422495124707*^9, 
+  3.9414225011010513`*^9}},ExpressionUUID->"b20f754a-89d7-4d13-8abd-\
+16c534e518de"],
+
+Cell["Gravitational-Wave Luminosity", "Section",
+ CellChangeTimes->{{3.9414225047799053`*^9, 
+  3.941422518571774*^9}},ExpressionUUID->"2a3bf36a-4578-476b-86d7-\
+15f048763f12"],
+
+Cell["Gravitational-Waves from a Binary", "Section",
+ CellChangeTimes->{{3.941422521094688*^9, 
+  3.941422533416252*^9}},ExpressionUUID->"eb49247f-8501-4e23-9537-\
+cf604015c887"],
+
+Cell["Gravitational-Wave Detectors", "Section",
+ CellChangeTimes->{{3.941422536032482*^9, 
+  3.941422542562747*^9}},ExpressionUUID->"dbc00f7f-042e-4202-a224-\
+f50a596e83b3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Black Holes", "Chapter",
+ CellChangeTimes->{{3.9414223875785646`*^9, 
+  3.941422416357471*^9}},ExpressionUUID->"f972b43d-54d2-4cc9-b4fa-\
+debe9219d210"],
+
+Cell["Four Dimensional Black Holes", "Section",
+ CellChangeTimes->{{3.9414225459416122`*^9, 
+  3.941422552536435*^9}},ExpressionUUID->"dc4df816-a147-452b-bce0-\
+fb5ffb637d0f"],
+
+Cell["Properties of Four Dimensional Black Holes", "Section",
+ CellChangeTimes->{{3.941422554835925*^9, 
+  3.941422561927227*^9}},ExpressionUUID->"149c8ec6-f97d-4aa5-8e3e-\
+c6b3e1d3fec9"],
+
+Cell["Higher-Dimensional Black Holes", "Section",
+ CellChangeTimes->{{3.941422564798266*^9, 
+  3.9414225754998283`*^9}},ExpressionUUID->"210a79a1-46dc-4254-8f41-\
+726255ea626b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Neutron Stars", "Chapter",
+ CellChangeTimes->{{3.9414224244777412`*^9, 
+  3.941422427833932*^9}},ExpressionUUID->"b4fb983e-3492-441c-a0c1-\
+c121ca0cff61"],
+
+Cell["Formation of Neutron Stars", "Section",
+ CellChangeTimes->{{3.941422593611959*^9, 
+  3.941422597904294*^9}},ExpressionUUID->"5fde2587-f37e-471e-a35b-\
+9aafd016c772"],
+
+Cell["Basic Properties of Neutron Stars", "Section",
+ CellChangeTimes->{{3.941422599706017*^9, 
+  3.9414226117104197`*^9}},ExpressionUUID->"b6763766-38a0-4e71-90da-\
+57bb38c44c7a"],
+
+Cell["Hydrostatic Equations for Cold Neutron Stars", "Section",
+ CellChangeTimes->{{3.941422613949542*^9, 
+  3.9414226246950912`*^9}},ExpressionUUID->"29cc3bc1-699a-4b39-8928-\
+809bee2f53a8"],
+
+Cell["Cold Neutron-Star Equations of State", "Section",
+ CellChangeTimes->{{3.941422626339076*^9, 
+  3.941422634950893*^9}},ExpressionUUID->"0aa7e868-1076-48bb-b884-\
+f7b712ea9e01"],
+
+Cell["Super-massive and  Hyper-massive Neutron Stars", "Section",
+ CellChangeTimes->{{3.9414226369299507`*^9, 
+  3.941422654849895*^9}},ExpressionUUID->"0c6e3d28-2435-4d96-94cc-\
+6f69919b314b"],
+
+Cell["\<\
+Finite-temperature Equations of State for High-Density Matter\
+\>", "Section",
+ CellChangeTimes->{{3.941422661938424*^9, 
+  3.941422680266004*^9}},ExpressionUUID->"1ae519cf-9b0c-4e80-bde0-\
+db547d090b29"],
+
+Cell["Binary Neutron Stars", "Section",
+ CellChangeTimes->{{3.941422684176408*^9, 
+  3.941422688925021*^9}},ExpressionUUID->"6bd60c49-a98f-4aff-8b87-\
+f8dda25548ef"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Sources of 
+Gravitational Waves\
+\>", "Chapter",
+ CellChangeTimes->{{3.941422430136598*^9, 3.9414224385077972`*^9}, 
+   3.941422813386454*^9},ExpressionUUID->"4562dd62-50b7-4ee9-aa7f-\
+157b328bb891"],
+
+Cell["Inspiral of Binary Compact Objects", "Section",
+ CellChangeTimes->{{3.941422693851211*^9, 
+  3.941422708665175*^9}},ExpressionUUID->"7ceea812-b916-461a-ae19-\
+1a24b6d5cb41"],
+
+Cell["Merger of Binary Neutron Stars", "Section",
+ CellChangeTimes->{{3.941422710906046*^9, 
+  3.941422716127831*^9}},ExpressionUUID->"51f5e7f1-9e48-4d48-a4fc-\
+0e97f3ae986c"],
+
+Cell["Merger of Binary Black Holes", "Section",
+ CellChangeTimes->{{3.941422718339373*^9, 
+  3.941422731711865*^9}},ExpressionUUID->"8791560c-fc1f-4d17-9f9e-\
+c82b3ba5199d"],
+
+Cell["Merger of Black Hole Neutron Stars Binaries", "Section",
+ CellChangeTimes->{{3.941422743876642*^9, 
+  3.9414227571651783`*^9}},ExpressionUUID->"c72fb9d8-a896-4370-8d12-\
+1025fb6748b3"]
+}, Open  ]],
+
+Cell["\<\
+Matches Filtering Techniques
+for Gravitational-Wave Data Analysis\
+\>", "Chapter",
+ CellChangeTimes->{{3.941422780648926*^9, 
+  3.941422819555029*^9}},ExpressionUUID->"ec44fe78-467e-44c2-9764-\
+300e579d8dcb"]
+}, Open  ]]
+},
+WindowSize->{720., 755.25},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"13.2 for Linux x86 (64-bit) (November 18, 2022)",
+StyleDefinitions->FrontEnd`FileName[{$RootDirectory, "home", "kid-a", 
+   "mathematica-styles"}, "stylesheet.nb", CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"40f860d5-4def-4599-bd9f-94a5ae3f25ea"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 191, 7, 452, "Title",ExpressionUUID->"9cfa35f8-3c12-4ba1-b2ae-64752dc7ffdd"],
+Cell[774, 31, 227, 4, 107, "Subtitle",ExpressionUUID->"a635aef5-a63e-415f-a7c2-56c6f69088f0"],
+Cell[CellGroupData[{
+Cell[1026, 39, 193, 6, 157, "Chapter",ExpressionUUID->"4eefecf9-73d6-41d8-bc76-593822af5980"],
+Cell[CellGroupData[{
+Cell[1244, 49, 181, 3, 73, "Section",ExpressionUUID->"6558efed-e12e-4699-88db-d3dab582827a"],
+Cell[1428, 54, 354, 7, 87, "Text",ExpressionUUID->"f8cc670a-b5e0-445c-a4ba-62469e144734"],
+Cell[1785, 63, 754, 19, 42, "Text",ExpressionUUID->"c9a50400-a50e-47b7-99fc-1ec1e6965666"],
+Cell[2542, 84, 645, 17, 39, "Text",ExpressionUUID->"f279b423-33dd-406e-8363-399a7be347ac"],
+Cell[3190, 103, 1013, 26, 54, "Text",ExpressionUUID->"75c92c0c-cc29-409b-8a5d-85813c166f8c"],
+Cell[4206, 131, 1225, 32, 89, "Text",ExpressionUUID->"0580d410-e362-4e76-b2a4-d9c008dba5c2"],
+Cell[5434, 165, 982, 23, 39, "Text",ExpressionUUID->"704d3ddd-5186-472f-b611-2de2b6add602"]
+}, Open  ]],
+Cell[6431, 191, 193, 3, 73, "Section",ExpressionUUID->"a47f4286-6f57-480f-b25c-bcbf92ebf524"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6661, 199, 164, 3, 89, "Chapter",ExpressionUUID->"253eae39-540a-4b23-9b25-f53d3bd2a2da"],
+Cell[6828, 204, 194, 3, 73, "Section",ExpressionUUID->"73490555-2ad4-475a-a441-df5a563b64d6"],
+Cell[7025, 209, 228, 4, 59, "Section",ExpressionUUID->"049667c6-16ea-4907-bc92-829dfe5ff357"],
+Cell[7256, 215, 180, 3, 59, "Section",ExpressionUUID->"b20f754a-89d7-4d13-8abd-16c534e518de"],
+Cell[7439, 220, 176, 3, 59, "Section",ExpressionUUID->"2a3bf36a-4578-476b-86d7-15f048763f12"],
+Cell[7618, 225, 178, 3, 59, "Section",ExpressionUUID->"eb49247f-8501-4e23-9537-cf604015c887"],
+Cell[7799, 230, 173, 3, 59, "Section",ExpressionUUID->"dbc00f7f-042e-4202-a224-f50a596e83b3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8009, 238, 158, 3, 89, "Chapter",ExpressionUUID->"f972b43d-54d2-4cc9-b4fa-debe9219d210"],
+Cell[8170, 243, 175, 3, 73, "Section",ExpressionUUID->"dc4df816-a147-452b-bce0-fb5ffb637d0f"],
+Cell[8348, 248, 187, 3, 59, "Section",ExpressionUUID->"149c8ec6-f97d-4aa5-8e3e-c6b3e1d3fec9"],
+Cell[8538, 253, 177, 3, 59, "Section",ExpressionUUID->"210a79a1-46dc-4254-8f41-726255ea626b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8752, 261, 160, 3, 89, "Chapter",ExpressionUUID->"b4fb983e-3492-441c-a0c1-c121ca0cff61"],
+Cell[8915, 266, 171, 3, 73, "Section",ExpressionUUID->"5fde2587-f37e-471e-a35b-9aafd016c772"],
+Cell[9089, 271, 180, 3, 59, "Section",ExpressionUUID->"b6763766-38a0-4e71-90da-57bb38c44c7a"],
+Cell[9272, 276, 191, 3, 59, "Section",ExpressionUUID->"29cc3bc1-699a-4b39-8928-809bee2f53a8"],
+Cell[9466, 281, 181, 3, 59, "Section",ExpressionUUID->"0aa7e868-1076-48bb-b884-f7b712ea9e01"],
+Cell[9650, 286, 193, 3, 59, "Section",ExpressionUUID->"0c6e3d28-2435-4d96-94cc-6f69919b314b"],
+Cell[9846, 291, 214, 5, 59, "Section",ExpressionUUID->"1ae519cf-9b0c-4e80-bde0-db547d090b29"],
+Cell[10063, 298, 165, 3, 59, "Section",ExpressionUUID->"6bd60c49-a98f-4aff-8b87-f8dda25548ef"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10265, 306, 209, 6, 157, "Chapter",ExpressionUUID->"4562dd62-50b7-4ee9-aa7f-157b328bb891"],
+Cell[10477, 314, 179, 3, 73, "Section",ExpressionUUID->"7ceea812-b916-461a-ae19-1a24b6d5cb41"],
+Cell[10659, 319, 175, 3, 59, "Section",ExpressionUUID->"51f5e7f1-9e48-4d48-a4fc-0e97f3ae986c"],
+Cell[10837, 324, 173, 3, 59, "Section",ExpressionUUID->"8791560c-fc1f-4d17-9f9e-c82b3ba5199d"],
+Cell[11013, 329, 190, 3, 59, "Section",ExpressionUUID->"c72fb9d8-a896-4370-8d12-1025fb6748b3"]
+}, Open  ]],
+Cell[11218, 335, 218, 6, 157, "Chapter",ExpressionUUID->"ec44fe78-467e-44c2-9764-300e579d8dcb"]
+}, Open  ]]
+}
+]
+*)
+
