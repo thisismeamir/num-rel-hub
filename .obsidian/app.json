@@ -9,5 +9,8 @@
     "downscalePercent": 78
   },
   "newFileLocation": "current",
-  "attachmentFolderPath": "./attchs"
+  "attachmentFolderPath": "./attchs",
+  "showLineNumber": true,
+  "showIndentGuide": true,
+  "rightToLeft": false
 }
